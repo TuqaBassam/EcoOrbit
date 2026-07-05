@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "h0_km": 500.0,
+    "mass_kg": 250.0,
+    "Cd": 2.2,
+    "A_m2": 3.2,
+    "beta_kg_m2": 35.5,
+    "weights": [
+      0.4,
+      0.3,
+      0.3
+    ]
+  },
+  "RUL_numerical_days": 565.0,
+  "RUL_king_hele_days": 562.8,
+  "RUL_ai_days": 541.5,
+  "surrogate_R2": 0.9937,
+  "surrogate_RMSE_days": 12.92,
+  "optimal_deorbit_day": 202,
+  "residual_dwell_saving_pct": 64.3,
+  "weight_sensitivity_days": 61,
+  "polynomial_coefficients": [
+    -1808.5258269594128,
+    19.590559223601065,
+    -0.06733435723872772,
+    7.510705649990134e-05
+  ]
+}

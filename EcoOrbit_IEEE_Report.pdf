@@ -1,0 +1,49 @@
+# EcoOrbit — Live Demo Runbook & Backup Video Script
+
+## A. Live demo (max 5 minutes) — exact sequence
+
+The guide requires: *core function + parameter change + interpretable output.* This sequence delivers all three. Practice it until it runs in ~4 minutes.
+
+**Setup before going on stage:** terminal open in `code/`, font size large (Ctrl+`+` ×3), `results/ecoorbit_results.png` pre-opened in an image viewer behind the terminal. Nothing else on screen.
+
+**Step 1 — Reference run (90 s).**
+```bash
+python ecoorbit.py
+```
+Narrate while it prints: *"Layer 1, the physics propagator, integrates orbital decay hour-by-hour from 500 km — 565 days to re-entry. King-Hele's 1964 closed form agrees within half a percent — that's our analytical validation. Layer 2, the AI surrogate, learns this trajectory and now answers in one microsecond instead of four seconds. Layer 3 sweeps the cost function and recommends disposal at day ~200 — cutting debris dwell time by 64%."* Alt-tab to the plot PNG and point at the J(t) minimum.
+
+**Step 2 — Parameter change #1: different spacecraft (60 s).**
+```bash
+python ecoorbit.py --h0 450 --mass 150 --area 1.5
+```
+Narrate: *"A judge asks — what about a smaller satellite at 450 km? One flag change, full re-optimization in seconds. New lifetime, new optimal day, same auditable logic."*
+
+**Step 3 — Parameter change #2: operator policy (60 s).**
+```bash
+python ecoorbit.py --wf 0.25 --wr 0.45 --wd 0.3
+```
+Narrate: *"A risk-averse operator weights collision risk higher — t* moves earlier. The weights turn disposal policy into a number regulators can audit. That's the point: not a black box, a negotiation."*
+
+**Step 4 — Show the artifacts (30 s).** `cat ../results/kpi_summary.json` — *"Every run writes its KPIs, trajectory, and sensitivity sweep to disk. Fully reproducible, seeded, version-controlled."*
+
+**Q&A ammunition:** know these cold — why Euler (transparency; error ~1.5%, RK4 planned); why degree-3 (leave-one-out CV over degrees 1–5); why A = 3.2 m² (tumbling smallsat with panels, β = 35.5 kg/m² — typical range 20–100); why exponential atmosphere (tractability; NRLMSISE-00 is the roadmap); cost model forms f=(1−x)², r=x², d=x and why each is monotone the way it is.
+
+## B. Backup video script (60–90 s, screen recording + voiceover)
+
+Record your screen (OBS or phone on tripod facing the monitor) running exactly Steps 1–3 above. Script, ~85 seconds at natural pace:
+
+> [0:00–0:10] Title card / repo page. "This is EcoOrbit — a hybrid physics–AI engine that decides *when* a satellite should de-orbit."
+>
+> [0:10–0:35] Run `python ecoorbit.py`, camera on output. "One command. The physics layer propagates orbital decay from 500 kilometers — 565 days to re-entry, confirmed by the King-Hele analytical solution within half a percent. The AI surrogate reproduces it a million times faster."
+>
+> [0:35–0:55] Point at optimizer line + J(t) plot. "The decision layer balances fuel, collision risk, and debris dwell — optimal disposal: day 200. That removes about 64 percent of post-mission debris time from orbit."
+>
+> [0:55–1:15] Run with `--h0 450 --mass 150 --area 1.5`. "Change the spacecraft, and the whole decision recomputes in seconds — this is what fleet-scale, ten-thousand-satellite sustainability looks like."
+>
+> [1:15–1:25] KPI json + repo page. "Reproducible, auditable, open. EcoOrbit — predicting re-entry, protecting orbit, preserving space."
+
+Keep it as one take if possible; judges only see this if the live demo genuinely fails.
+
+## C. Presentation timing map (5 minutes, existing deck)
+
+Slide 1 title (0:15) → Problem (0:40) → Kessler/Answer (0:35) → Architecture (0:45) → Physics equations (0:30) → Hybrid implementation (0:25) → Simulation results (0:45) → Three Methods One Answer (0:35) → Optimization (0:45) → SDG (0:20) → Scalability + Conclusion (0:25). Total ≈ 5:00. If running long, compress the equations slide to one sentence — judges have the paper.
