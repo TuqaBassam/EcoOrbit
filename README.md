@@ -141,7 +141,7 @@ Applied across an operator fleet of 10² spacecraft, a ~64 % dwell reduction rem
 
 ## Team
 
-Tuqa Bassam (Chair, IEEE AESS Student Chapter) and the EcoOrbit team — AESS Egypt · AESS Jordan · AESS Tunisia · AESS | ESSTHS.
+Tuqa Bassam (Chair, IEEE AESS Student Chapter) , Ahmed Amer (vice chair,IEEE AESS Student Chapter), Ahmed Mamdouh ( secrtary,IEEE AESS Student Chapter) — AESS Egypt · AESS Jordan · AESS Tunisia · AESS | ESSTHS.
 
 ## Disclosure
 
